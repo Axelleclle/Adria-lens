@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore photo licensing options for editorial, social and advertising use with Adria Lens.">
+  <title>Adria Lens | Croatian Photography Licensing</title>
+  <style>
+    :root {
+      --navy: #263D32;
+      --blue: #557C68;
+      --pale: #E6E9DC;
+      --ink: #262A24;
+      --muted: #6B7065;
+      --line: #DDDCCF;
+      --paper: #FFFEFA;
+      --soft: #F5F3EA;
+      --accent: #C56D4B;
+      --sea: #58785F;
+      --coral: #C56D4B;
+      --cream: #F5F0E4;
+      --sand: #E9D9C4;
+      --radius: 18px;
+      --shadow: 0 12px 32px rgba(23, 54, 93, .08);
+    }
+
+    /* Pricing strategy and financial proof */
+    .strategy-section { background: var(--cream); padding: 76px 0; }
+    .strategy-intro { max-width: 720px; color: var(--muted); margin: 0 0 28px; }
+    .logic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 28px 0 46px; }
+    .logic-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
+    .logic-number { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--pale); color: var(--navy); font-weight: 800; margin-bottom: 12px; }
+    .logic-card h3 { margin: 0 0 8px; font-size: 1.08rem; }
+    .logic-card p { margin: 0; color: var(--muted); font-size: .95rem; }
+    .financial-panel { background: var(--navy); color: white; border-radius: 26px; padding: clamp(24px, 4vw, 42px); }
+    .financial-panel .eyebrow { color: #F2D28B; }
+    .financial-panel h2 { color: white; margin-top: 0; }
+    .financial-panel .muted-light { color: #D7E2EE; max-width: 760px; }
+    .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 28px 0; }
+    .kpi { border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.07); border-radius: 15px; padding: 18px; }
+    .kpi span { display: block; color: #D7E2EE; font-size: .83rem; margin-bottom: 7px; }
+    .kpi strong { font-size: clamp(1.25rem, 2vw, 1.8rem); letter-spacing: -.03em; }
+    .comparison { background: white; color: var(--ink); border-radius: 18px; padding: 24px; margin-top: 24px; }
+    .comparison h3 { margin: 0 0 6px; }
+    .comparison > p { color: var(--muted); margin: 0 0 20px; font-size: .92rem; }
+    .compare-row { display: grid; grid-template-columns: 160px 1fr 105px; align-items: center; gap: 14px; margin: 15px 0; }
+    .compare-label { font-weight: 700; font-size: .92rem; }
+    .bar-track { height: 14px; background: #EDF1F5; border-radius: 99px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: inherit; background: var(--sea); }
+    .bar-fill.negative { background: var(--coral); width: 37%; }
+    .compare-value { text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
+    .break-even { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 20px; border-top: 1px solid rgba(255,255,255,.2); padding-top: 24px; margin-top: 24px; }
+    .break-even p { color: #D7E2EE; margin: 5px 0 0; }
+    .break-even strong { font-size: clamp(1.5rem, 3vw, 2.1rem); color: #F2D28B; white-space: nowrap; }
+    .assumption-note { font-size: .85rem; color: #D7E2EE; margin: 22px 0 0; }
+    @media (max-width: 760px) { .logic-grid { grid-template-columns: 1fr; } .kpi-grid { grid-template-columns: repeat(2, 1fr); } .compare-row { grid-template-columns: 1fr auto; gap: 8px; } .bar-track { grid-column: 1 / -1; grid-row: 2; } .compare-value { grid-column: 2; grid-row: 1; } .break-even { grid-template-columns: 1fr; } }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .container { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
+    .site-header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+    .nav-wrap {
+      min-height: 76px; display: flex; align-items: center;
+      justify-content: space-between; gap: 24px;
+    }
+    .brand {
+      display: inline-flex; align-items: center; gap: 11px;
+      text-decoration: none; color: var(--navy); font-weight: 800;
+      letter-spacing: -.04em; font-size: 1.3rem; white-space: nowrap;
+    }
+    .brand-mark {
+      display: grid; place-items: center; width: 38px; height: 38px;
+      border-radius: 12px; color: #fff; background: var(--navy);
+      font-size: 1rem; letter-spacing: 0;
+    }
+    nav { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; }
+    nav a {
+      min-height: 44px; display: inline-flex; align-items: center;
+      padding: 0 12px; border-radius: 9px; text-decoration: none;
+      color: #354455; font-size: .94rem; font-weight: 600;
+    }
+    nav a:hover, nav a:focus-visible { background: var(--pale); color: var(--navy); }
+    .hero {
+      overflow: hidden; position: relative;
+      padding: 58px 0 64px;
+      background: #102E43;
+      color: #fff;
+    }
+    .hero-layout {
+      display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+      gap: 54px;
+    }
+    .hero-content { max-width: 640px; }
+    .hero h1 { max-width: 620px; font-size: clamp(2.8rem, 5.5vw, 5rem); }
+    .hero h1 em { color: #E8C77A; font-style: normal; }
+    .hero-kicker {
+      display: inline-flex; align-items: center; gap: 9px; margin: 0 0 20px;
+      border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08);
+      border-radius: 999px; padding: 7px 12px; color: #F6E6BD;
+      font-size: .76rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+    }
+    .hero-kicker::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #E8C77A; }
+    .hero h1 { color: #fff; }
+    .hero .eyebrow { color: #E8C77A; }
+    .hero p { color: #E2EBF0; }
+    .hero-image-wrap {
+      position: relative; min-height: 485px; border-radius: 28px 28px 110px 28px; overflow: hidden;
+      background: #d7e2e7; box-shadow: 0 28px 64px rgba(0,0,0,.28);
+      transform: translateZ(0);
+    }
+    .hero-image-wrap img { transition: transform .7s cubic-bezier(.2,.7,.2,1); }
+    .hero-image-wrap:hover img { transform: scale(1.045); }
+    .hero-image-wrap::before {
+      content: "120,000"; position: absolute; z-index: 2; top: 20px; right: 20px;
+      padding: 10px 13px; border-radius: 13px; color: var(--navy); background: rgba(255,255,255,.94);
+      font-size: 1.15rem; font-weight: 850; box-shadow: 0 8px 24px rgba(0,0,0,.12);
+    }
+    .hero-image-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-image-wrap::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(5,28,42,.72));
+    }
+    .hero-image-caption {
+      position: absolute; z-index: 1; left: 22px; bottom: 20px; color: white;
+      font-size: .85rem; letter-spacing: .04em; font-weight: 700;
+    }
+    .hero::after { display: none; }
+    .eyebrow { letter-spacing: .14em; }
+    .hero::after {
+      content: ""; position: absolute; width: 330px; height: 330px;
+      right: -110px; top: -115px; border: 1px solid rgba(47,111,159,.16);
+      border-radius: 50%; box-shadow: 0 0 0 42px rgba(47,111,159,.035), 0 0 0 84px rgba(47,111,159,.025);
+      pointer-events: none;
+    }
+    .hero-content { max-width: 760px; position: relative; z-index: 1; }
+    .eyebrow {
+      display: inline-block; margin: 0 0 18px; color: var(--blue);
+      font-size: .8rem; font-weight: 800; letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { color: var(--navy); line-height: 1.15; }
+    h1 { margin: 0 0 20px; max-width: 740px; font-size: clamp(2.5rem, 6vw, 4.6rem); letter-spacing: -.055em; }
+    .hero p { max-width: 650px; margin: 0 0 28px; color: #425264; font-size: 1.15rem; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      min-height: 50px; padding: 13px 22px; border: 2px solid var(--navy);
+      border-radius: 999px; background: var(--navy); color: #fff;
+      font-weight: 750; text-decoration: none; transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+      box-shadow: 0 8px 20px rgba(23,54,93,.14);
+    }
+    .button:hover { background: #214b7b; transform: translateY(-2px); box-shadow: 0 12px 24px rgba(23,54,93,.2); }
+    .button.secondary:hover { background: var(--pale); }
+    .button:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .button.secondary { background: #fff; color: var(--navy); }
+    section { padding: 84px 0; scroll-margin-top: 86px; }
+    .stats-strip { background: var(--cream); border-bottom: 1px solid #EDE5D8; }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding: 23px 0; }
+    .stat { text-align: center; padding: 7px 12px; border-right: 1px solid #E4D9C8; }
+    .stat:last-child { border-right: 0; }
+    .stat strong { display: block; color: var(--navy); font-size: 1.55rem; line-height: 1.15; letter-spacing: -.04em; }
+    .stat span { display: block; margin-top: 5px; color: var(--muted); font-size: .85rem; }
+    .section-heading { margin-bottom: 40px; }
+    .section-heading h2 { font-size: clamp(2.15rem, 4vw, 3.1rem); }
+    .section-heading .eyebrow { color: var(--sea); }
+    .section-heading { max-width: 720px; margin: 0 auto 34px; text-align: center; }
+    .section-heading .eyebrow { margin-bottom: 12px; }
+    h2 { margin: 0 0 14px; font-size: clamp(2rem, 4vw, 2.7rem); letter-spacing: -.04em; }
+    .section-heading p { margin: 0; color: var(--muted); font-size: 1.05rem; }
+    .photo-strip { display: grid; grid-template-columns: 1.1fr .9fr 1fr; gap: 16px; margin-top: 30px; }
+    .photo-tile { position: relative; height: 260px; overflow: hidden; border-radius: 20px; background: var(--pale); box-shadow: 0 12px 28px rgba(23,54,93,.09); }
+    .photo-tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
+    .photo-tile:hover img { transform: scale(1.04); }
+    .photo-tile span { position: absolute; bottom: 0; left: 0; right: 0; padding: 35px 16px 14px; color: #fff; font-weight: 750; background: linear-gradient(transparent, rgba(9,30,44,.78)); }
+    .benefit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .benefit {
+      padding: 28px; border: 1px solid var(--line); border-radius: 22px;
+      background: #fff; box-shadow: 0 8px 25px rgba(23,54,93,.035);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .benefit:hover { transform: translateY(-5px); box-shadow: 0 18px 35px rgba(23,54,93,.09); border-color: #B9CDDD; }
+    .benefit-number {
+      width: 42px; height: 42px; display: grid; place-items: center;
+      border-radius: 12px; margin-bottom: 18px; color: var(--navy);
+      background: var(--pale); font-weight: 800;
+    }
+    .benefit h3 { margin: 0 0 10px; font-size: 1.18rem; }
+    .benefit p { margin: 0; color: var(--muted); }
+    .how { background: linear-gradient(180deg, #F6F8FA 0%, #FFFFFF 100%); }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; counter-reset: step; }
+    .step { position: relative; padding: 4px 4px 4px 58px; counter-increment: step; }
+    .step::before {
+      content: counter(step); position: absolute; left: 0; top: 0;
+      width: 40px; height: 40px; display: grid; place-items: center;
+      background: var(--navy); color: white; border-radius: 50%; font-weight: 800;
+    }
+    .step h3 { margin: 0 0 8px; font-size: 1.15rem; }
+    .step p { margin: 0; color: var(--muted); }
+    .pricing-intro { max-width: 760px; margin: 0 auto 28px; text-align: center; color: var(--muted); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+    .price-card {
+      display: flex; flex-direction: column; min-width: 0;
+      border: 1px solid var(--line); border-radius: 22px;
+      padding: 17px 17px 19px; background: #fff; box-shadow: 0 12px 30px rgba(23,54,93,.07);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .price-card:hover { transform: translateY(-6px); box-shadow: 0 20px 38px rgba(23,54,93,.13); border-color: #A7C2D8; }
+    .price-card h3 { min-height: 2.4em; }
+    .price-card .price { font-size: 2.35rem; }
+    .price-card.recommended { border: 2px solid var(--blue); background: linear-gradient(180deg, #EAF5FB, #FFFFFF 48%); transform: translateY(-8px); }
+    .price-card.recommended:hover { transform: translateY(-13px); }
+    .recommend-label {
+      align-self: flex-start; margin: -8px 0 12px; padding: 5px 9px;
+      border-radius: 999px; background: var(--navy); color: #fff;
+      font-size: .75rem; font-weight: 800; letter-spacing: .04em;
+    }
+    .price-card h3 { margin: 0 0 10px; font-size: 1.15rem; }
+    .price {
+      margin: 0 0 2px; color: var(--navy); font-size: 2.05rem;
+      font-weight: 850; line-height: 1.15; letter-spacing: -.045em;
+    }
+    .unit { margin: 0 0 16px; color: var(--muted); font-size: .9rem; }
+    .audience { min-height: 54px; margin: 0 0 12px; font-weight: 700; color: #334456; }
+    .price-rationale { margin: 0 0 18px; padding: 12px 13px; border-left: 3px solid var(--accent); background: #FBF7F0; border-radius: 0 10px 10px 0; color: #4D5B68; font-size: .9rem; }
+    .price-rationale strong { display: block; margin-bottom: 4px; color: var(--navy); font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; }
+    .conditions-heading { margin: 30px 0 10px; color: var(--navy); font-size: 1.2rem; }
+    .condition-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 14px; }
+    .condition-item { padding: 17px; border: 1px solid var(--line); background: #fff; border-radius: 14px; }
+    .condition-item h3 { font-size: .98rem; margin: 0 0 7px; }
+    .condition-item p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .financial-method { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+    .method-card { border: 1px solid rgba(255,255,255,.18); border-radius: 14px; padding: 17px; background: rgba(255,255,255,.06); }
+    .method-card h3 { color: #F2D28B; margin: 0 0 8px; font-size: 1rem; }
+    .method-card p { color: #D7E2EE; margin: 0; font-size: .9rem; }
+    .data-note { color: #D7E2EE; font-size: .85rem; margin-top: 16px; }
+    .rights-title { margin: 0 0 8px; font-size: .8rem; font-weight: 800; color: var(--blue); text-transform: uppercase; letter-spacing: .07em; }
+    .rights { margin: 0 0 22px; padding-left: 18px; color: var(--muted); font-size: .93rem; }
+    .rights li { margin-bottom: 7px; }
+    .price-card .button { width: 100%; margin-top: auto; font-size: .94rem; padding: 10px 12px; }
+    .pricing-note {
+      margin: 26px 0 0; padding: 19px 22px; border-radius: 16px;
+      background: #F2F7FA; border: 1px solid #DCE8F0; color: #33485d; font-size: .92rem;
+    }
+    .pricing-note strong { color: var(--navy); }
+    .pricing-photo {
+      width: 100%; height: 128px; object-fit: cover; border-radius: 11px;
+      margin: 0 0 16px; display: block; background: var(--pale);
+    }
+    .faq { background: var(--soft); }
+    .faq-list { max-width: 820px; margin: 0 auto; display: grid; gap: 12px; }
+    details { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 0 18px; }
+    summary { min-height: 54px; display: flex; align-items: center; cursor: pointer; color: var(--navy); font-weight: 750; }
+    details p { margin: 0; padding: 0 0 17px; color: var(--muted); }
+    .contact-box {
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      padding: 42px; border-radius: 28px; background: linear-gradient(125deg, #17365D, #0F766E); color: #fff;
+      box-shadow: 0 22px 45px rgba(23,54,93,.18); position: relative; overflow: hidden;
+    }
+    .contact-box::after {
+      content: ""; position: absolute; width: 240px; height: 240px; border: 1px solid rgba(255,255,255,.2);
+      border-radius: 50%; right: 13%; top: -145px; box-shadow: 0 0 0 28px rgba(255,255,255,.04), 0 0 0 56px rgba(255,255,255,.03);
+      pointer-events: none;
+    }
+    .contact-box > * { position: relative; z-index: 1; }
+    .contact-box h2 { margin-bottom: 8px; color: #fff; font-size: 2rem; }
+    .contact-box p { margin: 0; color: #E0EAF3; }
+    .contact-box .button { flex-shrink: 0; background: #fff; border-color: #fff; color: var(--navy); }
+    footer { padding: 25px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+    .footer-wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .footer-brand { color: var(--navy); font-weight: 800; }
+    @media (max-width: 900px) {
+      .pricing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero-layout { grid-template-columns: 1fr; gap: 30px; }
+      .hero-image-wrap { min-height: 360px; }
+      .stats-grid { gap: 4px; }
+      .stat strong { font-size: 1.3rem; }
+      .photo-strip { grid-template-columns: 1fr 1fr; }
+      .photo-tile:first-child { grid-column: 1 / -1; }
+      .benefit-grid, .steps { gap: 14px; }
+      .price-card { padding: 20px 17px; }
+    }
+    @media (max-width: 600px) {
+      .container { width: min(100% - 32px, 1100px); }
+      .nav-wrap { align-items: flex-start; flex-direction: column; gap: 7px; padding: 12px 0 10px; }
+      .brand { min-height: 44px; }
+      nav { width: 100%; gap: 2px; }
+      nav a { min-height: 44px; padding: 0 9px; font-size: .88rem; }
+      .hero { padding: 48px 0 50px; }
+      .stats-grid { grid-template-columns: 1fr; padding: 12px 0; }
+      .stat { border-right: 0; border-bottom: 1px solid #E4D9C8; padding: 13px 0; }
+      .stat:last-child { border-bottom: 0; }
+      .hero::after { width: 220px; height: 220px; right: -135px; top: -95px; }
+      h1 { font-size: clamp(2.35rem, 11vw, 3.4rem); }
+      .hero p { font-size: 1.05rem; }
+      section { padding: 58px 0; scroll-margin-top: 150px; }
+      .benefit-grid, .steps, .pricing-grid, .photo-strip, .condition-grid, .financial-method { grid-template-columns: 1fr; }
+      .photo-tile:first-child { grid-column: auto; }
+      .photo-tile { height: 220px; }
+      .benefit { padding: 22px; }
+      .step { padding-bottom: 8px; }
+      .price-card { padding: 23px; }
+      .audience { min-height: 0; }
+      .contact-box { flex-direction: column; align-items: flex-start; padding: 25px; }
+      .contact-box .button { width: 100%; }
+      .footer-wrap { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+
+    /* Navy-blue refresh with a new editorial cover layout */
+    :root {
+      --navy: #102E43;
+      --blue: #2F6F9F;
+      --pale: #EAF2F7;
+      --ink: #1E2B35;
+      --muted: #667784;
+      --line: #DCE5EB;
+      --paper: #FFFFFF;
+      --soft: #F4F8FA;
+      --accent: #E8C77A;
+      --sea: #397FA8;
+      --coral: #C66A52;
+      --cream: #F1F6F9;
+      --sand: #E5EDF2;
+      --radius: 22px;
+      --shadow: 0 16px 38px rgba(16,46,67,.09);
+    }
+    body { background: #FFFFFF; }
+    .site-header { background: rgba(255,255,255,.96); border-bottom-color: #DCE5EB; }
+    .brand-mark, .button, .step-number { background: var(--navy) !important; }
+    nav a { color: #304B5D; }
+    nav a:hover, nav a:focus-visible { background: #EAF2F7; color: #102E43; }
+    /* Cover: image-led split composition, with photo on the left and copy on the right */
+    .hero { background: linear-gradient(125deg, #0B2638 0%, #123B56 68%, #1A5275 100%); padding: 42px 0; }
+    .hero-layout { grid-template-columns: 1.08fr .92fr; gap: clamp(28px, 5vw, 68px); }
+    .hero-image-wrap { order: -1; min-height: 510px; border-radius: 8px 92px 8px 8px; box-shadow: 0 28px 70px rgba(0,0,0,.25); }
+    .hero-image-wrap::before { color: #102E43; }
+    .hero h1 { max-width: 540px; font-size: clamp(2.8rem, 4.8vw, 4.6rem); }
+    .hero-content { max-width: 590px; padding: 18px 0; }
+    .hero h1 em, .hero .eyebrow { color: #E8C77A; }
+    .hero-kicker { color: #F4E6C1; }
+    .hero-kicker::before { background: #E8C77A; }
+    .hero p { color: #E2EDF3; }
+    .hero .button { background: #E8C77A !important; color: #102E43; border-color: #E8C77A; box-shadow: none; }
+    .hero .button:hover { background: #F3D995 !important; }
+    .stats-strip { background: #F1F6F9; border-bottom-color: #DCE5EB; }
+    .photo-tile { border-radius: 18px; box-shadow: 0 14px 32px rgba(16,46,67,.12); }
+    .price-card, .logic-card, .feature-card, .faq-card { border-color: #DCE5EB; border-radius: 20px; box-shadow: 0 10px 30px rgba(16,46,67,.055); }
+    .price-card:hover { border-color: #78A7C5; box-shadow: 0 20px 38px rgba(16,46,67,.12); }
+    .price-card .price, .price-card .price strong { color: #102E43; }
+    .price-card .tag, .price-card .badge { background: #EAF2F7; color: #245879; }
+    .price-card.recommended { border-color: #2F6F9F; background: linear-gradient(180deg, #EAF4FA, #FFFFFF 48%); }
+    .strategy-section { background: #F1F6F9; }
+    .financial-panel { background: linear-gradient(135deg, #102E43 0%, #174967 72%, #22688D 100%); }
+    .financial-panel .eyebrow, .break-even strong { color: #E8C77A; }
+    .bar-fill { background: #4F9BC4; }
+    .bar-fill.negative { background: #C66A52; }
+    .contact-box { background: #EAF2F7; border: 1px solid #D5E4ED; border-radius: 24px; }
+    footer { background: #102E43; color: #EAF2F7; }
+    footer a { color: #E8C77A; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid #E8C77A; outline-offset: 3px; }
+    @media (max-width: 900px) {
+      .hero-layout { grid-template-columns: 1fr; gap: 28px; }
+      .hero-image-wrap { order: 0; min-height: 360px; }
+      .hero-content { padding: 0; }
+    }
+    @media (max-width: 760px) { .hero { padding-top: 36px; } .price-card { border-radius: 18px; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="Adria Lens home">
+        <span class="brand-mark" aria-hidden="true">AL</span>
+        <span>Adria Lens</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#benefits">Benefits</a>
+        <a href="#how">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#strategy">Our approach</a>
+          <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-layout">
+        <div class="hero-content">
+          <p class="hero-kicker">Croatian photography licensing</p>
+          <h1 id="hero-title">Bring the real <em>Croatia</em> into your story.</h1>
+          <p>Discover photographs of Croatia and the Adriatic, with clear licensing options for editorial, social and advertising use.</p>
+          <a class="button" href="#pricing">Explore pricing <span aria-hidden="true">&nbsp;→</span></a>
+        </div>
+        <div class="hero-image-wrap">
+          <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=85" alt="Adriatic coastline with turquoise water and coastal buildings">
+          <span class="hero-image-caption">THE ADRIATIC, THROUGH A LOCAL LENS</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="stats-strip" aria-label="Adria Lens collection facts">
+      <div class="container stats-grid">
+        <div class="stat"><strong>120,000</strong><span>photographs in the collection</span></div>
+        <div class="stat"><strong>45</strong><span>contributing photographers</span></div>
+        <div class="stat"><strong>One clear price</strong><span>per photo licence, rights included</span></div>
+      </div>
+    </div>
+
+    <section id="benefits" aria-labelledby="benefits-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Why Adria Lens</p>
+          <h2 id="benefits-title">Local imagery. Clear rights.</h2>
+          <p>Find photography that fits your content and choose a licence defined for the way you plan to use it.</p>
+        </div>
+        <div class="benefit-grid">
+          <article class="benefit">
+            <div class="benefit-number" aria-hidden="true">01</div>
+            <h3>A broad Croatian collection</h3>
+            <p>Explore a library of 120,000 photographs covering Croatia and the Adriatic.</p>
+          </article>
+          <article class="benefit">
+            <div class="benefit-number" aria-hidden="true">02</div>
+            <h3>Local relevance</h3>
+            <p>Choose images that show the actual place featured in your article, publication or campaign.</p>
+          </article>
+          <article class="benefit">
+            <div class="benefit-number" aria-hidden="true">03</div>
+            <h3>Licences matched to use</h3>
+            <p>Compare social, digital editorial, print editorial and advertising campaign options before choosing.</p>
+          </article>
+        </div>
+        <div class="photo-strip" aria-label="Photography from Croatia">
+          <figure class="photo-tile">
+            <img src="https://images.unsplash.com/photo-1555990793-da11153b2473?auto=format&fit=crop&w=1000&q=85" alt="Historic Adriatic coastal town">
+            <span>Coastal towns</span>
+          </figure>
+          <figure class="photo-tile">
+            <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=900&q=85" alt="Mediterranean village with colorful buildings">
+            <span>Local stories</span>
+          </figure>
+          <figure class="photo-tile">
+            <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=85" alt="Clear blue sea along the coast">
+            <span>Adriatic landscapes</span>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="how" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">A simple process</p>
+          <h2 id="how-title">How it works</h2>
+          <p>Choose your image and make sure the licence matches the intended use.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <h3>Choose your photograph</h3>
+            <p>Find an image of Croatia or the Adriatic that fits your content.</p>
+          </article>
+          <article class="step">
+            <h3>Select the right licence</h3>
+            <p>Choose the option that matches your audience, medium and intended use.</p>
+          </article>
+          <article class="step">
+            <h3>Use it within the licence</h3>
+            <p>Keep your use within the agreed scope. Contact Adria Lens if you need different rights.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Transparent licensing</p>
+          <h2 id="pricing-title">Pricing for your use</h2>
+          <p>Choose a licence according to the way you will publish or use the photograph.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <img class="pricing-photo" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80" alt="Content creator working on a laptop">
+            <h3>Web &amp; Social</h3>
+            <p class="price">12 €</p>
+            <p class="unit">per photo licence</p>
+            <p class="audience">For small businesses, blogs and NGOs</p>
+            <p class="price-rationale"><strong>Why €12?</strong> A lower entry price than print or advertising, while staying above the €8 digital editorial rate because this offer serves smaller buyers with broader owned-channel use. The case suggests occasional buyers respond strongly to lower prices.</p>
+            <p class="rights-title">Includes</p>
+            <ul class="rights">
+              <li>Non-advertising use on the buyer’s own website or social channels</li>
+              <li>No print, paid advertising, resale or transfer</li>
+              <li>Non-exclusive rights; copyright remains with the photographer/rightsholder</li>
+            </ul>
+            <a class="button secondary" href="#contact">Choose Web &amp; Social</a>
+          </article>
+
+          <article class="price-card recommended">
+            <img class="pricing-photo" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=700&q=80" alt="Newspaper and editorial publishing">
+            <span class="recommend-label">Recommended</span>
+            <h3>Digital Editorial</h3>
+            <p class="price">8 €</p>
+            <p class="unit">per photo licence</p>
+            <p class="audience">For news portals and editorial websites</p>
+            <p class="price-rationale"><strong>Why €8?</strong> The case reports high potential volume at low prices for portals. €8 is the strongest contribution among the stated €6 and €8 demand points in this model, but it should be tested because the case estimates about €6 in extra ad revenue per real-location photo.</p>
+            <p class="rights-title">Includes</p>
+            <ul class="rights">
+              <li>One editorial article on one named website</li>
+              <li>No print/e-paper, paid advertising, display advertising or campaign use</li>
+              <li>Non-exclusive rights; copyright remains with the photographer/rightsholder</li>
+            </ul>
+            <a class="button" href="#contact">Choose Digital Editorial</a>
+          </article>
+
+          <article class="price-card">
+            <img class="pricing-photo" src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=700&q=80" alt="Books and printed publications">
+            <h3>Print Editorial</h3>
+            <p class="price">36 €</p>
+            <p class="unit">per photo licence</p>
+            <p class="audience">For magazines and book publishers</p>
+            <p class="price-rationale"><strong>Why €36?</strong> Print publishers in the case show demand around €36–€40. This price captures more value than a low-cost web licence while remaining below the current €40 single price.</p>
+            <p class="rights-title">Includes</p>
+            <ul class="rights">
+              <li>Print use in one named title and edition</li>
+              <li>No website, e-paper or advertising use unless separately licensed</li>
+              <li>Non-exclusive rights; copyright remains with the photographer/rightsholder</li>
+            </ul>
+            <a class="button secondary" href="#contact">Choose Print Editorial</a>
+          </article>
+
+          <article class="price-card">
+            <img class="pricing-photo" src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=700&q=80" alt="Creative event and campaign production">
+            <h3>Advertising Campaign</h3>
+            <p class="price">250 €</p>
+            <p class="unit">per photo licence</p>
+            <p class="audience">For advertising agencies and tourism boards</p>
+            <p class="price-rationale"><strong>Why €250?</strong> Campaign imagery supports commercial communication and the case indicates agencies pay much more for advertising use than editorial use. The price remains below the stated €300 demand point and does not promise exclusivity.</p>
+            <p class="rights-title">Includes</p>
+            <ul class="rights">
+              <li>One named campaign and the media declared for that campaign</li>
+              <li>No resale, transfer, unrelated future campaign or exclusive rights</li>
+              <li>Copyright remains with the photographer/rightsholder</li>
+            </ul>
+            <a class="button secondary" href="#contact">Choose Advertising Campaign</a>
+          </article>
+        </div>
+        <p class="pricing-note"><strong>How to read these prices:</strong> Each amount is the total price for <strong>one photo + one licence</strong> for the specific use described on its card. It is not a monthly or annual subscription, and it is not a price per whole project. Prices are in euros and exclude VAT.</p>
+        <h3 class="conditions-heading">Licence conditions — please read before use</h3>
+        <div class="condition-grid">
+          <article class="condition-item"><h3>One defined use</h3><p>The licence applies to the buyer and the named website, publication/edition or campaign described in the agreement. A new outlet, edition, campaign or medium may require an additional licence.</p></article>
+          <article class="condition-item"><h3>Non-exclusive rights</h3><p>The same photograph may be licensed to other customers. No offer on this page grants exclusivity, ownership of the image or transfer of copyright.</p></article>
+          <article class="condition-item"><h3>Not included</h3><p>Resale, transfer to another organisation, paid advertising outside the campaign licence, and uses outside the stated scope are excluded. Ask for written permission before using the photo in another way.</p></article>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="strategy" class="strategy-section" aria-labelledby="strategy-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">The thinking behind the prices</p>
+          <h2 id="strategy-title">One photo library. Four ways to license it.</h2>
+        </div>
+        <p class="strategy-intro">A single €40 price treats a social post, a news article, a printed publication and a commercial campaign as if they created the same value. The case data suggest they do not. The proposed strategy uses <strong>value-based pricing</strong> (price linked to the value of the use) and <strong>price fences</strong> (clear licence limits that distinguish the offers). The price explanations above show how each recommendation relates to the case data; the figures are proposals to test, not proven market prices.</p>
+        <div class="logic-grid">
+          <article class="logic-card"><span class="logic-number">01</span><h3>Segment by use</h3><p>Everyday social content, digital editorial, print publishing and advertising campaigns have different needs and commercial value.</p></article>
+          <article class="logic-card"><span class="logic-number">02</span><h3>Make the rights clear</h3><p>Each price covers one photo licence for a defined use. Licences are non-exclusive, copyright stays with the rightsholder, and other uses require additional permission.</p></article>
+          <article class="logic-card"><span class="logic-number">03</span><h3>Price for sustainable value</h3><p>Value-based pricing and clear “price fences” help customers choose the right offer without giving every use the same price.</p></article>
+        </div>
+
+        <div class="financial-panel" aria-labelledby="financial-title">
+          <p class="eyebrow">The financial case</p>
+          <h2 id="financial-title">From a loss-making model to a positive scenario</h2>
+          <p class="muted-light">The model applies the case’s demand points to the proposed segment prices. These figures are scenario calculations, not guaranteed sales or a forecast.</p>
+          <div class="kpi-grid">
+            <div class="kpi"><span>Scenario revenue</span><strong>€223,800</strong></div>
+            <div class="kpi"><span>Variable costs</span><strong>€100,246</strong></div>
+            <div class="kpi"><span>Contribution</span><strong>€123,554</strong></div>
+            <div class="kpi"><span>Result after fixed costs</span><strong>+€23,554</strong></div>
+          </div>
+          <div class="comparison">
+            <h3>Why move away from one flat price?</h3>
+            <p>Estimated annual result after €100,000 in fixed costs, using the case demand data.</p>
+            <div class="compare-row"><span class="compare-label">One price: €40</span><div class="bar-track"><div class="bar-fill negative"></div></div><span class="compare-value">−€45,520</span></div>
+            <div class="compare-row"><span class="compare-label">Segmented pricing</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="compare-value">+€23,554</span></div>
+          </div>
+          <div class="break-even"><div><strong>Estimated break-even volume</strong><p>At the proposed sales mix and average contribution per licence, Adria Lens needs about this many licences per year to cover fixed costs.</p></div><strong>10,117 licences/year</strong></div>
+          <div class="financial-method">
+            <div class="method-card"><h3>How the scenario is calculated</h3><p>For each segment, the selected price is multiplied by the demand volume reported at that price in the case. Revenue is then reduced by variable costs: 40% photographer payments + 2% platform/payment fees + €0.50 processing and delivery per licence.</p></div>
+            <div class="method-card"><h3>What the comparison means</h3><p>The uniform-price scenario applies €40 to the demand points stated for that price. The segmented scenario applies the four proposed prices and their corresponding case demand points. Both results are modelled estimates, not guaranteed sales or a validated forecast.</p></div>
+          </div>
+          <p class="assumption-note"><strong>Assumptions and limitations:</strong> annual fixed costs are €100,000; customer segments are treated as non-overlapping; the mix of licences is assumed to remain constant for break-even analysis. The case’s survey figures are fictional case inputs, not a real market study. The model does not fully include customer acquisition, administration beyond the stated processing cost, or licence-enforcement costs. The €8 digital editorial offer should therefore be piloted and reviewed against actual customer response and value.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Good to know</p>
+          <h2 id="faq-title">Frequently asked questions</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Does the price include the licence?</summary>
+            <p>Yes. The photo and its licence are sold together. The displayed price is the total price per photo licence, excluding VAT.</p>
+          </details>
+          <details>
+            <summary>Can I use the same photo for different purposes?</summary>
+            <p>The licence covers only the stated buyer, medium and scope. For example, a print licence does not cover web or e-paper use, and an editorial licence does not cover paid advertising. If you want to use a photo in another medium, publication or unrelated campaign, obtain an additional or extended licence before that use.</p>
+          </details>
+          <details>
+            <summary>Why are the prices different?</summary>
+            <p>The intended use and commercial value differ by segment. The case indicates strong price sensitivity among occasional buyers, high potential volume for digital portals at lower prices, willingness to pay around €36–€40 among print publishers, and higher stated willingness to pay for advertising use. These case inputs support differentiated offers, but real demand should be tested.</p>
+          </details>
+          <details>
+            <summary>Are the licences exclusive?</summary>
+            <p>No. All offers shown on this page are non-exclusive. The buyer receives only the stated usage rights; copyright is not transferred.</p>
+          </details>
+          <details>
+            <summary>What if I need a different type of use?</summary>
+            <p>Contact Adria Lens before using the photo outside the scope described in your licence so that the appropriate rights can be discussed.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <h2 id="contact-title">Need help choosing a licence?</h2>
+            <p>Tell us how you plan to use the photograph and refer to the licence option that best fits your project.</p>
+          </div>
+          <a class="button" href="mailto:hello@adrialens.example">hello@adrialens.example</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <span class="footer-brand">Adria Lens</span>
+      <span>© 2026 Adria Lens – student project, fictitious company</span>
+    </div>
+  </footer>
+</body>
+</html>
